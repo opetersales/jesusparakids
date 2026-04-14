@@ -47,6 +47,19 @@ body {
   background: #fffaf2;
 }
 
+.arsenal-eyebrow {
+  display: inline-block;
+  background: #ff4d4d;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 999px;
+  margin: 0 auto 12px;
+}
+
 .lp-section--cta {
   padding-top: 70px;
   padding-bottom: 60px;
