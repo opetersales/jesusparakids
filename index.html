@@ -28,6 +28,81 @@
             <div class="lp-inner">
                 <div class="stack-title hero-eyebrow animate-on-scroll">CONTEÚDO DIGITAL PARA IMPRIMIR</div>
                 <h1 id="header_headline" class="animate-on-scroll delay-100"><span class="headline-highlight-primary">+365 Atividades Bíblicas</span> que Tornam o Ensino da Palavra <span class="headline-highlight-secondary">3x Mais Envolvente</span></h1>
+                <div id="vsl-container-4984" style="position: relative; width: 100%; max-width: 400px; margin: 20px auto; aspect-ratio: 9/16; background: #000; border-radius: 15px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.5); font-family: sans-serif;">
+                    <!-- Project: VSL Primeiros Passos Com Cristo -->
+                    <video id="vsl-video" autoplay muted playsinline onclick="togglePlay()" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;">
+                        <source src="https://usfogdxtrkdqthlcqshf.supabase.co/storage/v1/object/public/VSL/VSL.mp4" type="video/mp4">
+                    </video>
+                
+                    <div id="vsl-overlay" onclick="primeiroClique()" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 30;">
+                        <div style="background: #2563eb; color: white; padding: 15px 25px; border-radius: 50px; font-weight: bold; font-size: 16px; box-shadow: 0 4px 15px #2563eb80;">
+                            🔊 CLIQUE PARA OUVIR
+                        </div>
+                    </div>
+                
+                    <div id="pause-icon" onclick="togglePlay()" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; z-index: 20;">
+                        <div class="vortex-pulse-button" style="width: 80px; height: 80px; background: #2563eb66; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <div style="width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 25px solid white; margin-left: 5px;"></div>
+                        </div>
+                    </div>
+                
+                    <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 12px; background: rgba(255,255,255,0.2); z-index: 25;">
+                        <div id="progress-bar" style="width: 0%; height: 100%; background: #2563eb; transition: width 0.1s linear;"></div>
+                    </div>
+                </div>
+                
+                <style>
+                    @keyframes vortex-pulse-blue {
+                        0% { transform: scale(1); opacity: 0.8; }
+                        50% { transform: scale(1.1); opacity: 0.4; }
+                        100% { transform: scale(1); opacity: 0.8; }
+                    }
+                    .vortex-pulse-button { animation: vortex-pulse-blue 2s infinite ease-in-out; }
+                </style>
+                
+                <script>
+                    (function() {
+                        const video = document.querySelector('#vsl-container-4984 #vsl-video');
+                        const overlay = document.querySelector('#vsl-container-4984 #vsl-overlay');
+                        const progressBar = document.querySelector('#vsl-container-4984 #progress-bar');
+                        const pauseIcon = document.querySelector('#vsl-container-4984 #pause-icon');
+                        const curvatura = 0.5;
+                
+                        window.primeiroClique = function() {
+                            if (!video) return;
+                            video.muted = false;
+                            video.currentTime = 0;
+                            video.play();
+                            if (overlay) overlay.style.display = 'none';
+                        };
+                
+                        window.togglePlay = function() {
+                            if (!video) return;
+                            if (overlay && overlay.style.display === 'none') {
+                                if (video.paused) {
+                                    video.play();
+                                    if (pauseIcon) pauseIcon.style.display = 'none';
+                                } else {
+                                    video.pause();
+                                    if (pauseIcon) pauseIcon.style.display = 'block';
+                                }
+                            }
+                        };
+                
+                        video.addEventListener('timeupdate', () => {
+                            if (video.duration) {
+                                let progressoLogico = Math.pow((video.currentTime / video.duration), curvatura) * 100;
+                                if (progressoLogico > 100) progressoLogico = 100;
+                                if (progressBar) progressBar.style.width = progressoLogico + '%';
+                            }
+                        });
+                
+                        video.onended = () => { 
+                            if (pauseIcon) pauseIcon.style.display = 'none'; 
+                            if (progressBar) progressBar.style.width = '100%'; 
+                        };
+                    })();
+                </script>
                 <div class="sub-headline animate-on-scroll delay-200">
                     O segredo de mamães e professoras para plantar a semente do Reino no coração dos pequenos (mesmo sem tempo para planejar nada).
                 </div>
