@@ -156,6 +156,14 @@ h1 {
   text-align: center;
 }
 
+.subheadline-highlight {
+  color: #ff8c00;
+  font-weight: 800;
+  background: rgba(255, 140, 0, 0.12);
+  border-radius: 8px;
+  padding: 0.03em 0.18em;
+}
+
 .lead-box {
   text-align: center;
   line-height: 1.35;
