@@ -65,6 +65,21 @@ body {
   padding-bottom: 60px;
 }
 
+.section-garantia {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.section-faq {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.section-cta-final {
+  padding-top: 0;
+  padding-bottom: 12px;
+}
+
 .lp-section.social-proof-section {
   padding-top: 0;
   padding-bottom: 0;
@@ -1112,7 +1127,7 @@ h1 {
 
 .garantia-box {
   margin-top: 0;
-  padding: 28px;
+  padding: 18px 28px 12px;
   border-top: 1px solid #eee;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -1148,10 +1163,15 @@ h1 {
 .faq-section {
   text-align: center;
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 .faq-item {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
+}
+
+.faq-item:last-child {
+  margin-bottom: 0;
 }
 
 .faq-item b {
@@ -1166,7 +1186,7 @@ h1 {
   text-decoration: underline;
   cursor: pointer;
   font-size: 0.85rem;
-  margin: 50px 0;
+  margin: 14px 0 0;
   width: 100%;
   text-transform: uppercase;
   text-align: center;
