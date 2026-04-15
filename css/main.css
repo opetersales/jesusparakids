@@ -894,17 +894,9 @@ h1 {
 }
 
 .btn-scroll-plans {
-  width: min(360px, 100%);
-  margin: 16px auto 10px;
-  border: 0;
-  border-radius: 999px;
-  padding: 14px 22px;
-  background: linear-gradient(180deg, #1d9bf0, #0ea5e9);
-  color: #fff;
-  font-weight: 800;
-  font-size: 18px;
-  letter-spacing: 0.2px;
-  box-shadow: 0 12px 26px rgba(2, 132, 199, 0.35);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 16px;
 }
 
 .btn-scroll-plans:active {
