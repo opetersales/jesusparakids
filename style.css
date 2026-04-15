@@ -142,6 +142,23 @@ body {
   margin: 0 auto 10px;
 }
 
+.offer-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1a1a1a;
+  text-align: center;
+  margin: 0 0 22px;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+@media (max-width: 600px) {
+  .offer-title {
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+}
+
 .anchor-reveal-price {
   font-size: 64px;
   font-weight: 900;
