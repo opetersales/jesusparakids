@@ -79,4 +79,85 @@
       }
     });
   });
+
+  const carousels = document.querySelectorAll("[data-carousel]");
+  carousels.forEach((carousel) => {
+    const viewport = carousel.querySelector(".social-carousel-viewport");
+    const track = carousel.querySelector(".social-carousel-track");
+    const prevBtn = carousel.querySelector(".carousel-prev");
+    const nextBtn = carousel.querySelector(".carousel-next");
+    const dots = carousel.querySelector(".carousel-dots");
+    if (!viewport || !track || !dots) return;
+
+    const slides = Array.from(track.children).filter((el) =>
+      el.classList.contains("social-proof-item"),
+    );
+    if (slides.length === 0) return;
+
+    const dotButtons = slides.map((_, idx) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "carousel-dot";
+      dot.setAttribute("aria-label", `Ir para depoimento ${idx + 1}`);
+      dot.addEventListener("click", () => {
+        slides[idx].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      });
+      dots.appendChild(dot);
+      return dot;
+    });
+
+    const getActiveIndex = () => {
+      const viewportRect = viewport.getBoundingClientRect();
+      const viewportCenter = viewportRect.left + viewportRect.width / 2;
+      let bestIdx = 0;
+      let bestDist = Infinity;
+      slides.forEach((slide, idx) => {
+        const rect = slide.getBoundingClientRect();
+        const center = rect.left + rect.width / 2;
+        const dist = Math.abs(center - viewportCenter);
+        if (dist < bestDist) {
+          bestDist = dist;
+          bestIdx = idx;
+        }
+      });
+      return bestIdx;
+    };
+
+    const setActive = (idx) => {
+      dotButtons.forEach((dot, i) => dot.classList.toggle("is-active", i === idx));
+      if (prevBtn) prevBtn.disabled = idx === 0;
+      if (nextBtn) nextBtn.disabled = idx === slides.length - 1;
+    };
+
+    let rafId = 0;
+    const onScroll = () => {
+      if (rafId) window.cancelAnimationFrame(rafId);
+      rafId = window.requestAnimationFrame(() => {
+        setActive(getActiveIndex());
+        rafId = 0;
+      });
+    };
+
+    viewport.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+
+    const scrollToIndex = (idx) => {
+      const bounded = Math.max(0, Math.min(slides.length - 1, idx));
+      slides[bounded].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      setActive(bounded);
+    };
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        scrollToIndex(getActiveIndex() - 1);
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        scrollToIndex(getActiveIndex() + 1);
+      });
+    }
+
+    setActive(0);
+  });
 })();

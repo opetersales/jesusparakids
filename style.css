@@ -910,18 +910,9 @@ h1 {
   }
 }
 
-.social-proof-grid {
-  display: flex;
-  gap: 20px;
-  margin: 0;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 .social-proof-item {
-  flex: 1 1 220px;
-  min-width: 210px;
-  height: 320px;
+  width: clamp(260px, 78vw, 340px);
+  aspect-ratio: 9 / 16;
   border-radius: 20px;
   border: 1px solid #ddd;
   background: #fdfdfd;
@@ -931,6 +922,98 @@ h1 {
   justify-content: center;
   color: #777;
   font-weight: bold;
+}
+
+.social-proof-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 20px;
+}
+
+.social-carousel {
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.social-carousel-viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.social-carousel-viewport::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.social-carousel-track {
+  display: flex;
+  gap: 16px;
+  padding: 10px 6px;
+  justify-content: flex-start;
+}
+
+.social-carousel-track > .social-proof-item {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+}
+
+.carousel-nav {
+  position: absolute;
+  top: calc(50% - 22px);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 900;
+  color: #111;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.carousel-prev {
+  left: -10px;
+}
+
+.carousel-next {
+  right: -10px;
+}
+
+.carousel-dots {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+}
+
+.carousel-dot.is-active {
+  background: #2ecc71;
+}
+
+@media (max-width: 600px) {
+  .carousel-nav {
+    display: none;
+  }
 }
 
 .authority-box {
