@@ -67,7 +67,7 @@ body {
 
 .anchor-final-section {
   background: #f9f9f9;
-  padding: 60px 20px;
+  padding: 15px 20px 10px;
 }
 
 .anchor-final {
@@ -84,7 +84,7 @@ body {
   }
 
   .anchor-final-section {
-    padding-top: 25px;
+    padding-top: 15px;
   }
 }
 
