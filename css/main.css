@@ -356,9 +356,15 @@ h1 {
 .mockup-img {
   display: block;
   width: 100%;
+  height: auto;
   max-width: 720px;
   margin: 24px auto 28px;
   border-radius: 8px;
+  object-fit: contain;
+}
+
+.lp-hero picture {
+  display: block;
 }
 
 .stack-box {
