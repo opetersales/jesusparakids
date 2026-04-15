@@ -1037,7 +1037,7 @@ h1 {
 }
 
 .social-carousel[data-carousel="proofs"] .social-carousel-track {
-  animation: socialMarquee var(--marquee-duration, 35s) linear infinite;
+  animation: none;
   will-change: transform;
 }
 
