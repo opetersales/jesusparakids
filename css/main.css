@@ -335,6 +335,17 @@ h1 {
   margin-bottom: 25px;
 }
 
+.social-proof-title {
+  text-align: center;
+  font-weight: 600;
+  color: #111;
+  display: inline-block;
+  background: rgba(46, 204, 113, 0.12);
+  border-radius: 12px;
+  padding: 0.2em 0.45em;
+  margin: 0 auto 18px;
+}
+
 .mockup-img {
   width: 100%;
   max-width: 720px;
