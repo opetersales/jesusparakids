@@ -143,18 +143,19 @@ body {
 }
 
 .offer-title {
-  font-size: 28px;
-  font-weight: 800;
-  color: #1a1a1a;
+  font-size: 44px;
+  font-weight: 900;
+  color: #2ecc71;
   text-align: center;
   margin: 0 0 22px;
   line-height: 1.2;
   text-wrap: balance;
+  animation: pricePulse 1.8s ease-in-out infinite;
 }
 
 @media (max-width: 600px) {
   .offer-title {
-    font-size: 22px;
+    font-size: 34px;
     margin-bottom: 18px;
   }
 }
