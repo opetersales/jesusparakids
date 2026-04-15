@@ -65,6 +65,92 @@ body {
   padding-bottom: 60px;
 }
 
+.anchor-final-section {
+  background: #f9f9f9;
+  padding: 60px 20px;
+}
+
+.anchor-final {
+  text-align: center;
+}
+
+.anchor-sum {
+  font-size: 18px;
+  color: #333;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.anchor-total {
+  font-size: 42px;
+  font-weight: 800;
+  color: #ff4d4d;
+  text-decoration: line-through;
+  margin: 20px 0;
+}
+
+.anchor-mission {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06);
+  max-width: 700px;
+  margin: 0 auto 30px;
+}
+
+.anchor-mission-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.anchor-mission-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #4a4a4a;
+}
+
+.anchor-reveal-line {
+  font-size: 18px;
+  color: #1a1a1a;
+  font-weight: 600;
+  max-width: 650px;
+  margin: 0 auto 12px;
+  line-height: 1.5;
+}
+
+.anchor-reveal-label {
+  font-size: 18px;
+  color: #4a4a4a;
+  max-width: 650px;
+  margin: 0 auto 10px;
+}
+
+.anchor-reveal-price {
+  font-size: 64px;
+  font-weight: 900;
+  color: #2ecc71;
+  animation: pricePulse 1.8s ease-in-out infinite;
+  line-height: 1;
+}
+
+@keyframes pricePulse {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(46, 204, 113, 0));
+  }
+  70% {
+    transform: scale(1.02);
+    filter: drop-shadow(0 10px 16px rgba(46, 204, 113, 0.18));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(46, 204, 113, 0));
+  }
+}
+
 .section-gap {
   margin-top: 0;
 }
