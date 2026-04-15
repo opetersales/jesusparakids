@@ -66,7 +66,7 @@ body {
 }
 
 .lp-section.social-proof-section {
-  padding-top: 0;
+  padding-top: 10px;
   padding-bottom: 0;
 }
 
@@ -1163,7 +1163,7 @@ h1 {
   }
 
   .lp-section.social-proof-section {
-    padding-top: 0;
+    padding-top: 10px;
     padding-bottom: 0;
   }
 
