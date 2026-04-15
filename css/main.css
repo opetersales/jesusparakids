@@ -66,8 +66,8 @@ body {
 }
 
 .lp-section.social-proof-section {
-  padding-top: 10px;
-  padding-bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .social-proof-section .pain-title {
@@ -1163,8 +1163,8 @@ h1 {
   }
 
   .lp-section.social-proof-section {
-    padding-top: 10px;
-    padding-bottom: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   .lp-section.authority-section {
