@@ -15,6 +15,20 @@ body {
   line-height: 1.6;
 }
 
+/* Security hardening layer: disables plain-text selection outside form fields */
+.secure-no-select,
+.secure-no-select * {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.secure-no-select input,
+.secure-no-select textarea,
+.secure-no-select [contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
 .container {
   width: 100%;
   max-width: none;
