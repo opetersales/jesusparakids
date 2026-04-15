@@ -74,6 +74,20 @@ body {
   text-align: center;
 }
 
+@media (max-width: 600px) {
+  .lp-section--arsenal {
+    padding-bottom: 25px;
+  }
+
+  .arsenal-grid {
+    margin-bottom: 10px;
+  }
+
+  .anchor-final-section {
+    padding-top: 25px;
+  }
+}
+
 .anchor-sum {
   font-size: 18px;
   color: #333;
