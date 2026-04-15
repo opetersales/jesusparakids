@@ -896,7 +896,7 @@ h1 {
 .btn-scroll-plans {
   padding-top: 20px;
   padding-bottom: 20px;
-  margin-top: 16px;
+  margin-top: 0;
 }
 
 .btn-scroll-plans:active {
