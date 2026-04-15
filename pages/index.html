@@ -6,6 +6,11 @@
     <title>Oferta Especial - Pack Bíblico Infantil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://usfogdxtrkdqthlcqshf.supabase.co" crossorigin>
+    <link rel="preload" as="image"
+          href="../assets/images/optimized/generated/ai-generated-01-960.jpg"
+          imagesrcset="../assets/images/optimized/generated/ai-generated-01-640.jpg 640w, ../assets/images/optimized/generated/ai-generated-01-960.jpg 960w, ../assets/images/optimized/generated/ai-generated-01-1280.jpg 1280w"
+          imagesizes="(max-width: 820px) 100vw, 720px">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/main.css">
     <script defer src="../js/main.js"></script>
@@ -30,7 +35,7 @@
                 <h1 id="header_headline" class="animate-on-scroll delay-100"><span class="headline-highlight-primary">+365 Atividades Bíblicas</span> que Tornam o Ensino da Palavra <span class="headline-highlight-secondary">3x Mais Envolvente</span></h1>
                 <div id="vsl-container-4984" style="position: relative; width: 100%; max-width: 400px; margin: 20px auto; aspect-ratio: 9/16; background: #000; border-radius: 15px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.5); font-family: sans-serif;">
                     <!-- Project: VSL Primeiros Passos Com Cristo -->
-                    <video id="vsl-video" autoplay muted playsinline onclick="togglePlay()" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;">
+                    <video id="vsl-video" autoplay muted playsinline preload="metadata" onclick="togglePlay()" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;">
                         <source src="https://usfogdxtrkdqthlcqshf.supabase.co/storage/v1/object/public/VSL/VSL.mp4" type="video/mp4">
                     </video>
                 
@@ -106,7 +111,20 @@
                 <div class="sub-headline animate-on-scroll delay-200">
                     Tudo o que você precisa para ajudar os pequenos a <span class="subheadline-highlight">amar Jesus</span> e <span class="subheadline-highlight">aprender a Bíblia</span> brincando
                 </div>
-                <img src="../assets/images/generated/ai-generated-01.png" alt="Mockup do Pack" class="mockup-img animate-on-scroll delay-300">
+                <picture class="animate-on-scroll delay-300">
+                    <source
+                        srcset="../assets/images/optimized/generated/ai-generated-01-640.jpg 640w, ../assets/images/optimized/generated/ai-generated-01-960.jpg 960w, ../assets/images/optimized/generated/ai-generated-01-1280.jpg 1280w"
+                        sizes="(max-width: 820px) 100vw, 720px"
+                        type="image/jpeg">
+                    <img
+                        src="../assets/images/optimized/generated/ai-generated-01-960.jpg"
+                        alt="Mockup do Pack"
+                        class="mockup-img"
+                        width="2816"
+                        height="1536"
+                        fetchpriority="high"
+                        decoding="async">
+                </picture>
 
                 <div class="stack-box hero-benefits animate-on-scroll delay-400">
                     <ul class="stack-list">
@@ -173,7 +191,10 @@
                 <div class="arsenal-grid">
                     <article class="arsenal-card animate-on-scroll delay-100">
                         <div class="arsenal-image-placeholder">
-                            <img class="arsenal-image" src="../assets/images/gallery/image-01.png" alt="Capa Amigos da Bíblia">
+                            <picture>
+                                <source srcset="../assets/images/optimized/gallery/image-01-480.jpg 480w, ../assets/images/optimized/gallery/image-01-768.jpg 768w" sizes="(max-width: 600px) 92vw, 360px" type="image/jpeg">
+                                <img class="arsenal-image" src="../assets/images/optimized/gallery/image-01-768.jpg" alt="Capa Amigos da Bíblia" loading="lazy" decoding="async" width="2752" height="1536">
+                            </picture>
                         </div>
                         <div class="arsenal-card-content">
                             <h3>Amigos da Bíblia</h3>
@@ -184,7 +205,10 @@
                     </article>
                     <article class="arsenal-card animate-on-scroll delay-200">
                         <div class="arsenal-image-placeholder">
-                            <img class="arsenal-image" src="../assets/images/gallery/image-02.png" alt="Capa Alfabeto do Reino">
+                            <picture>
+                                <source srcset="../assets/images/optimized/gallery/image-02-480.jpg 480w, ../assets/images/optimized/gallery/image-02-768.jpg 768w" sizes="(max-width: 600px) 92vw, 360px" type="image/jpeg">
+                                <img class="arsenal-image" src="../assets/images/optimized/gallery/image-02-768.jpg" alt="Capa Alfabeto do Reino" loading="lazy" decoding="async" width="2816" height="1536">
+                            </picture>
                         </div>
                         <div class="arsenal-card-content">
                             <h3>Alfabeto do Reino</h3>
@@ -195,7 +219,10 @@
                     </article>
                     <article class="arsenal-card animate-on-scroll delay-300">
                         <div class="arsenal-image-placeholder">
-                            <img class="arsenal-image" src="../assets/images/gallery/image-03.png" alt="Capa Jogos e Perguntas">
+                            <picture>
+                                <source srcset="../assets/images/optimized/gallery/image-03-480.jpg 480w, ../assets/images/optimized/gallery/image-03-768.jpg 768w" sizes="(max-width: 600px) 92vw, 360px" type="image/jpeg">
+                                <img class="arsenal-image" src="../assets/images/optimized/gallery/image-03-768.jpg" alt="Capa Jogos e Perguntas" loading="lazy" decoding="async" width="2752" height="1536">
+                            </picture>
                         </div>
                         <div class="arsenal-card-content">
                             <h3>Jogos e Perguntas</h3>
@@ -206,7 +233,10 @@
                     </article>
                     <article class="arsenal-card animate-on-scroll delay-400">
                         <div class="arsenal-image-placeholder">
-                            <img class="arsenal-image" src="../assets/images/gallery/image-04.png" alt="Capa Conversando com Jesus">
+                            <picture>
+                                <source srcset="../assets/images/optimized/gallery/image-04-480.jpg 480w, ../assets/images/optimized/gallery/image-04-768.jpg 768w" sizes="(max-width: 600px) 92vw, 360px" type="image/jpeg">
+                                <img class="arsenal-image" src="../assets/images/optimized/gallery/image-04-768.jpg" alt="Capa Conversando com Jesus" loading="lazy" decoding="async" width="2752" height="1536">
+                            </picture>
                         </div>
                         <div class="arsenal-card-content">
                             <h3>Conversando com Jesus</h3>
@@ -217,7 +247,10 @@
                     </article>
                     <article class="arsenal-card animate-on-scroll delay-500">
                         <div class="arsenal-image-placeholder">
-                            <img class="arsenal-image" src="../assets/images/gallery/image-05.png" alt="Capa Os Milagres de Jesus">
+                            <picture>
+                                <source srcset="../assets/images/optimized/gallery/image-05-480.jpg 480w, ../assets/images/optimized/gallery/image-05-768.jpg 768w" sizes="(max-width: 600px) 92vw, 360px" type="image/jpeg">
+                                <img class="arsenal-image" src="../assets/images/optimized/gallery/image-05-768.jpg" alt="Capa Os Milagres de Jesus" loading="lazy" decoding="async" width="2752" height="1536">
+                            </picture>
                         </div>
                         <div class="arsenal-card-content">
                             <h3>Os Milagres de Jesus</h3>
@@ -292,13 +325,13 @@
                     <button class="carousel-nav carousel-prev" type="button" aria-label="Anterior">‹</button>
                     <div class="social-carousel-viewport">
                         <div class="social-carousel-track">
-                            <div class="social-proof-item"><img src="../assets/images/screenshots/chat-proof-01.jpeg" alt="Prova social WhatsApp 1" loading="lazy"></div>
-                            <div class="social-proof-item"><img src="../assets/images/screenshots/chat-proof-02.jpeg" alt="Prova social WhatsApp 2" loading="lazy"></div>
-                            <div class="social-proof-item"><img src="../assets/images/screenshots/chat-proof-03.jpeg" alt="Prova social WhatsApp 3" loading="lazy"></div>
-                            <div class="social-proof-item"><img src="../assets/images/screenshots/chat-proof-04.jpeg" alt="Prova social WhatsApp 4" loading="lazy"></div>
-                            <div class="social-proof-item"><img src="../assets/images/screenshots/chat-proof-05.jpeg" alt="Prova social WhatsApp 5" loading="lazy"></div>
-                            <div class="social-proof-item"><img src="../assets/images/screenshots/chat-proof-06.jpeg" alt="Prova social WhatsApp 6" loading="lazy"></div>
-                            <div class="social-proof-item"><img src="../assets/images/screenshots/chat-proof-07.jpeg" alt="Prova social WhatsApp 7" loading="lazy"></div>
+                            <div class="social-proof-item"><img src="../assets/images/screenshots/chat-proof-01.jpeg" alt="Prova social WhatsApp 1" loading="lazy" decoding="async" width="1080" height="1096"></div>
+                            <div class="social-proof-item"><img src="../assets/images/screenshots/chat-proof-02.jpeg" alt="Prova social WhatsApp 2" loading="lazy" decoding="async" width="1080" height="590"></div>
+                            <div class="social-proof-item"><img src="../assets/images/screenshots/chat-proof-03.jpeg" alt="Prova social WhatsApp 3" loading="lazy" decoding="async" width="1080" height="605"></div>
+                            <div class="social-proof-item"><img src="../assets/images/screenshots/chat-proof-04.jpeg" alt="Prova social WhatsApp 4" loading="lazy" decoding="async" width="1080" height="843"></div>
+                            <div class="social-proof-item"><img src="../assets/images/screenshots/chat-proof-05.jpeg" alt="Prova social WhatsApp 5" loading="lazy" decoding="async" width="1080" height="769"></div>
+                            <div class="social-proof-item"><img src="../assets/images/screenshots/chat-proof-06.jpeg" alt="Prova social WhatsApp 6" loading="lazy" decoding="async" width="1080" height="489"></div>
+                            <div class="social-proof-item"><img src="../assets/images/screenshots/chat-proof-07.jpeg" alt="Prova social WhatsApp 7" loading="lazy" decoding="async" width="1080" height="752"></div>
                         </div>
                     </div>
                     <button class="carousel-nav carousel-next" type="button" aria-label="Próximo">›</button>
@@ -312,9 +345,9 @@
                 <div class="authority-box animate-on-scroll">
                     <div class="authority-avatar">Foto</div>
                     <div class="authority-content">
-                        <div class="lead-title">De mãe para mãe</div>
+                        <div class="lead-title">Sou mãe e educadora...</div>
                         <div class="lead-body">
-                            <p>Sou mãe e educadora. Assim como você, entendi que o ensino da Bíblia não pode ser chato nem pesado. Por isso, criei ferramentas que falam a língua das crianças de hoje, facilitando a sua vida e abençoando a sua casa.</p>
+                            <p>Assim como você, entendi que o ensino da Bíblia não pode ser chato nem pesado. Por isso, criei ferramentas que falam a língua das crianças de hoje, facilitando a sua vida e abençoando a sua casa.</p>
                             <p><b>Com carinho, sua parceira nessa missão.</b></p>
                         </div>
                     </div>

@@ -96,8 +96,10 @@
     let offsetPx = 0;
     let lastTs = 0;
     let rafId = 0;
+    let running = false;
     let paused = false;
     let holdTimer = 0;
+    let inViewport = true;
 
     const clearClones = () => {
       Array.from(track.children).forEach((el) => {
@@ -126,14 +128,30 @@
       const dt = Math.min(0.05, (ts - lastTs) / 1000);
       lastTs = ts;
 
-      if (!paused && distancePx > 0) {
+      if (!paused && inViewport && distancePx > 0) {
         const pxPerSecond = 35;
         offsetPx += pxPerSecond * dt;
         if (offsetPx >= distancePx) offsetPx -= distancePx;
         track.style.transform = `translate3d(${-offsetPx}px, 0, 0)`;
       }
 
+      if (running) rafId = window.requestAnimationFrame(step);
+    };
+
+    const startLoop = () => {
+      if (running || document.hidden || !inViewport) return;
+      running = true;
+      lastTs = 0;
       rafId = window.requestAnimationFrame(step);
+    };
+
+    const stopLoop = () => {
+      if (!running) return;
+      running = false;
+      if (rafId) {
+        window.cancelAnimationFrame(rafId);
+        rafId = 0;
+      }
     };
 
     const scheduleMeasure = (() => {
@@ -179,14 +197,28 @@
     scheduleMeasure();
 
     window.addEventListener("resize", scheduleMeasure, { passive: true });
+    const visibilityObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target !== carousel) return;
+          inViewport = entry.isIntersecting;
+          if (inViewport) startLoop();
+          else stopLoop();
+        });
+      },
+      { threshold: 0.05 },
+    );
+    visibilityObserver.observe(carousel);
+
     document.addEventListener(
       "visibilitychange",
       () => {
-        if (!document.hidden) lastTs = 0;
+        if (document.hidden) stopLoop();
+        else startLoop();
       },
       { passive: true },
     );
 
-    rafId = window.requestAnimationFrame(step);
+    startLoop();
   });
 })();
