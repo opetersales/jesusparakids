@@ -80,84 +80,43 @@
     });
   });
 
-  const carousels = document.querySelectorAll("[data-carousel]");
-  carousels.forEach((carousel) => {
-    const viewport = carousel.querySelector(".social-carousel-viewport");
+  const proofCarousels = document.querySelectorAll(
+    '.social-carousel[data-carousel="proofs"]',
+  );
+  proofCarousels.forEach((carousel) => {
     const track = carousel.querySelector(".social-carousel-track");
-    const prevBtn = carousel.querySelector(".carousel-prev");
-    const nextBtn = carousel.querySelector(".carousel-next");
-    const dots = carousel.querySelector(".carousel-dots");
-    if (!viewport || !track || !dots) return;
+    if (!track) return;
 
-    const slides = Array.from(track.children).filter((el) =>
+    const originalSlides = Array.from(track.children).filter((el) =>
       el.classList.contains("social-proof-item"),
     );
-    if (slides.length === 0) return;
+    if (originalSlides.length === 0) return;
 
-    const dotButtons = slides.map((_, idx) => {
-      const dot = document.createElement("button");
-      dot.type = "button";
-      dot.className = "carousel-dot";
-      dot.setAttribute("aria-label", `Ir para depoimento ${idx + 1}`);
-      dot.addEventListener("click", () => {
-        slides[idx].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-      });
-      dots.appendChild(dot);
-      return dot;
-    });
+    const initMarquee = () => {
+      track.style.animation = "none";
 
-    const getActiveIndex = () => {
-      const viewportRect = viewport.getBoundingClientRect();
-      const viewportCenter = viewportRect.left + viewportRect.width / 2;
-      let bestIdx = 0;
-      let bestDist = Infinity;
-      slides.forEach((slide, idx) => {
-        const rect = slide.getBoundingClientRect();
-        const center = rect.left + rect.width / 2;
-        const dist = Math.abs(center - viewportCenter);
-        if (dist < bestDist) {
-          bestDist = dist;
-          bestIdx = idx;
-        }
+      const clones = Array.from(track.children).filter(
+        (el) => el.dataset && el.dataset.clone === "true",
+      );
+      clones.forEach((el) => el.remove());
+
+      const distancePx = track.scrollWidth;
+
+      originalSlides.forEach((slide) => {
+        const clone = slide.cloneNode(true);
+        clone.dataset.clone = "true";
+        track.appendChild(clone);
       });
-      return bestIdx;
+
+      const pxPerSecond = 35;
+      const durationSeconds = Math.max(18, distancePx / pxPerSecond);
+
+      track.style.setProperty("--marquee-distance", `${distancePx}px`);
+      track.style.setProperty("--marquee-duration", `${durationSeconds}s`);
+      track.style.animation = "";
     };
 
-    const setActive = (idx) => {
-      dotButtons.forEach((dot, i) => dot.classList.toggle("is-active", i === idx));
-      if (prevBtn) prevBtn.disabled = idx === 0;
-      if (nextBtn) nextBtn.disabled = idx === slides.length - 1;
-    };
-
-    let rafId = 0;
-    const onScroll = () => {
-      if (rafId) window.cancelAnimationFrame(rafId);
-      rafId = window.requestAnimationFrame(() => {
-        setActive(getActiveIndex());
-        rafId = 0;
-      });
-    };
-
-    viewport.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
-
-    const scrollToIndex = (idx) => {
-      const bounded = Math.max(0, Math.min(slides.length - 1, idx));
-      slides[bounded].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
-      setActive(bounded);
-    };
-
-    if (prevBtn) {
-      prevBtn.addEventListener("click", () => {
-        scrollToIndex(getActiveIndex() - 1);
-      });
-    }
-    if (nextBtn) {
-      nextBtn.addEventListener("click", () => {
-        scrollToIndex(getActiveIndex() + 1);
-      });
-    }
-
-    setActive(0);
+    initMarquee();
+    window.addEventListener("resize", initMarquee, { passive: true });
   });
 })();
