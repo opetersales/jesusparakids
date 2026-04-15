@@ -65,7 +65,8 @@ body {
   padding-bottom: 60px;
 }
 
-.social-proof-section {
+.lp-section.social-proof-section {
+  padding-top: 0;
   padding-bottom: 0;
 }
 
@@ -78,7 +79,7 @@ body {
   margin-bottom: 0;
 }
 
-.authority-section {
+.lp-section.authority-section {
   padding-top: 0;
 }
 
@@ -1159,6 +1160,15 @@ h1 {
 @media (min-width: 601px) {
   .lp-section {
     padding: 80px 20px;
+  }
+
+  .lp-section.social-proof-section {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .lp-section.authority-section {
+    padding-top: 0;
   }
 
   .lp-hero {
