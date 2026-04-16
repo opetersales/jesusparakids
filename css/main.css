@@ -967,7 +967,8 @@ h1 {
   font-size: 20px;
   line-height: 1.25;
   font-weight: 900;
-  color: #ff4d4d;
+  color: #2563eb;
+  text-align: center;
 }
 
 .upsell-modal__subtitle {
@@ -987,6 +988,45 @@ h1 {
   gap: 8px;
   font-size: 14px;
   color: #111;
+}
+
+.upsell-offerbox {
+  margin: 0 0 14px;
+  padding: 12px 12px 10px;
+  border-radius: 12px;
+  border: 2px dashed rgba(217, 119, 6, 0.55);
+  background: #fff7e6;
+  text-align: center;
+}
+
+.upsell-offerbox__old {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.upsell-price-old {
+  text-decoration: line-through;
+  font-weight: 700;
+}
+
+.upsell-offerbox__new {
+  font-size: 14px;
+  color: #111;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.upsell-price-new {
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 900;
+  color: #16a34a;
+}
+
+.upsell-offerbox__save {
+  font-size: 13px;
+  color: #333;
 }
 
 .upsell-accept {
