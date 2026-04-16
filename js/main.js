@@ -80,6 +80,74 @@
     });
   });
 
+  const upsellModal = document.getElementById("upsell-modal");
+  const upsellAccept = document.getElementById("upsell-accept");
+  const upsellDecline = document.getElementById("upsell-decline");
+  const basicButton = document.querySelector(".btn-essencial");
+  const planBasic = document.querySelector(".plan-basic");
+  const planMaster = document.querySelector(".plan-master");
+  const masterButton = document.querySelector(".plan-master .btn-card.btn-master");
+
+  const openUpsell = () => {
+    if (!upsellModal || !upsellAccept || !upsellDecline) return;
+    upsellModal.hidden = false;
+    document.body.classList.add("modal-open");
+    upsellAccept.focus({ preventScroll: true });
+  };
+
+  const closeUpsell = () => {
+    if (!upsellModal) return;
+    upsellModal.hidden = true;
+    document.body.classList.remove("modal-open");
+  };
+
+  if (basicButton && upsellModal && upsellAccept && upsellDecline) {
+    basicButton.addEventListener(
+      "click",
+      (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openUpsell();
+      },
+      { capture: true },
+    );
+
+    upsellAccept.addEventListener("click", () => {
+      closeUpsell();
+      const target = document.querySelector("#planos");
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (planMaster instanceof HTMLElement) {
+        planMaster.classList.remove("offer-highlight");
+        window.setTimeout(() => planMaster.classList.add("offer-highlight"), 0);
+        window.setTimeout(() => planMaster.classList.remove("offer-highlight"), 1200);
+      }
+      if (masterButton instanceof HTMLButtonElement) masterButton.click();
+    });
+
+    upsellDecline.addEventListener("click", () => {
+      closeUpsell();
+      const target = document.querySelector("#planos");
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (planBasic instanceof HTMLElement) {
+        planBasic.classList.remove("offer-highlight");
+        window.setTimeout(() => planBasic.classList.add("offer-highlight"), 0);
+        window.setTimeout(() => planBasic.classList.remove("offer-highlight"), 1200);
+      }
+    });
+
+    document.addEventListener(
+      "keydown",
+      (e) => {
+        if (!upsellModal || upsellModal.hidden) return;
+        if (e.key === "Escape") {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+      },
+      { capture: true },
+    );
+  }
+
   const proofCarousels = document.querySelectorAll(
     '.social-carousel[data-carousel="proofs"]',
   );

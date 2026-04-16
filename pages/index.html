@@ -36,7 +36,6 @@
             <div class="lp-inner">
                 <div class="stack-title hero-eyebrow animate-on-scroll">CONTEÚDO DIGITAL PARA IMPRIMIR</div>
                 <h1 id="header_headline" class="animate-on-scroll delay-100"><span class="headline-highlight-primary">+365 Atividades Bíblicas</span> que Tornam o Ensino da Palavra <span class="headline-highlight-secondary">3x Mais Envolvente</span></h1>
-                <button type="button" class="btn-card btn-master btn-scroll-plans animate-on-scroll delay-200" data-scroll-to="#planos">Quero Acessar Agora</button>
                 <div id="vsl-container-4984" style="position: relative; width: 100%; max-width: 400px; margin: 20px auto; aspect-ratio: 9/16; background: #000; border-radius: 15px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.5); font-family: sans-serif;">
                     <!-- Project: VSL Primeiros Passos Com Cristo -->
                     <video id="vsl-video" autoplay muted playsinline preload="metadata" onclick="togglePlay()" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;">
@@ -399,6 +398,21 @@
             </div>
         </section>
     </main>
+
+    <div class="upsell-modal" id="upsell-modal" hidden>
+        <div class="upsell-modal__backdrop" aria-hidden="true"></div>
+        <div class="upsell-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="upsell-title" aria-describedby="upsell-desc">
+            <h2 class="upsell-modal__title" id="upsell-title">⚠️ ESPERE! VOCÊ VAI DEIXAR ISSO PARA TRÁS?</h2>
+            <p class="upsell-modal__subtitle" id="upsell-desc">Por apenas mais R$ 10,00, você garante o Kit Completo com todos os 5 bônus exclusivos. É a sua única chance de levar tudo por R$ 19,90.</p>
+            <ul class="upsell-modal__list">
+                <li>✅ 365 Atividades Bíblicas</li>
+                <li>✅ TODOS os 5 Bônus Exclusivos (Alfabeto, Jogos, Milagres...)</li>
+                <li>✅ Acesso Vitalício (Para sempre)</li>
+            </ul>
+            <button type="button" class="btn-card upsell-accept btn-pulse-green" id="upsell-accept">SIM! QUERO O KIT COMPLETO POR APENAS R$ 19,90</button>
+            <button type="button" class="upsell-decline" id="upsell-decline">Não, prefiro pagar o valor normal depois e ficar só com o básico agora.</button>
+        </div>
+    </div>
 
 </div>
 
