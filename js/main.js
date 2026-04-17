@@ -86,7 +86,7 @@
   const basicButton = document.querySelector(".btn-essencial");
   const checkoutUrls = {
     upsell: "https://pay.wiapy.com/l-HT82qu6",
-    basic: "https://pay.wiapy.com/69e18c0677c2484f3516ef9d",
+    basic: "https://pay.wiapy.com/vYDGxTVhNd",
   };
 
   const redirectToCheckout = (url) => {
