@@ -84,9 +84,27 @@
   const upsellAccept = document.getElementById("upsell-accept");
   const upsellDecline = document.getElementById("upsell-decline");
   const basicButton = document.querySelector(".btn-essencial");
-  const planBasic = document.querySelector(".plan-basic");
-  const planMaster = document.querySelector(".plan-master");
-  const masterButton = document.querySelector(".plan-master .btn-card.btn-master");
+  const checkoutUrls = {
+    upsell: "https://pay.wiapy.com/l-HT82qu6",
+    basic: "https://pay.wiapy.com/69e18c0677c2484f3516ef9d",
+  };
+
+  const redirectToCheckout = (url) => {
+    if (!url) return;
+    window.location.href = url;
+  };
+
+  const directCheckoutButtons = document.querySelectorAll("[data-checkout-url]");
+  directCheckoutButtons.forEach((btn) => {
+    if (!(btn instanceof HTMLButtonElement)) return;
+    if (btn.classList.contains("btn-essencial")) return;
+    btn.addEventListener("click", (e) => {
+      const checkoutUrl = btn.getAttribute("data-checkout-url");
+      if (!checkoutUrl) return;
+      e.preventDefault();
+      redirectToCheckout(checkoutUrl);
+    });
+  });
 
   const openUpsell = () => {
     if (!upsellModal || !upsellAccept || !upsellDecline) return;
@@ -114,25 +132,14 @@
 
     upsellAccept.addEventListener("click", () => {
       closeUpsell();
-      const target = document.querySelector("#planos");
-      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-      if (planMaster instanceof HTMLElement) {
-        planMaster.classList.remove("offer-highlight");
-        window.setTimeout(() => planMaster.classList.add("offer-highlight"), 0);
-        window.setTimeout(() => planMaster.classList.remove("offer-highlight"), 1200);
-      }
-      if (masterButton instanceof HTMLButtonElement) masterButton.click();
+      redirectToCheckout(checkoutUrls.upsell);
     });
 
     upsellDecline.addEventListener("click", () => {
       closeUpsell();
-      const target = document.querySelector("#planos");
-      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-      if (planBasic instanceof HTMLElement) {
-        planBasic.classList.remove("offer-highlight");
-        window.setTimeout(() => planBasic.classList.add("offer-highlight"), 0);
-        window.setTimeout(() => planBasic.classList.remove("offer-highlight"), 1200);
-      }
+      const basicCheckoutUrl =
+        basicButton?.getAttribute("data-checkout-url") || checkoutUrls.basic;
+      redirectToCheckout(basicCheckoutUrl);
     });
 
     document.addEventListener(
