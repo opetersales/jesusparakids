@@ -89,9 +89,17 @@
     basic: "https://pay.wiapy.com/vYDGxTVhNd",
   };
 
+  const getTrackedCheckoutUrl = (url) => {
+    if (!url) return "";
+    if (window.utmify && typeof window.utmify.getTrackingUrl === "function") {
+      return window.utmify.getTrackingUrl(url);
+    }
+    return url;
+  };
+
   const redirectToCheckout = (url) => {
     if (!url) return;
-    window.location.href = url;
+    window.location.href = getTrackedCheckoutUrl(url);
   };
 
   const directCheckoutButtons = document.querySelectorAll("[data-checkout-url]");
@@ -153,6 +161,10 @@
       },
       { capture: true },
     );
+  }
+
+  if (window.utmify && typeof window.utmify.render === "function") {
+    window.utmify.render();
   }
 
   const proofCarousels = document.querySelectorAll(
