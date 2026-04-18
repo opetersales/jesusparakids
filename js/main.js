@@ -208,7 +208,6 @@
     };
 
     const measure = () => {
-      buildClones();
       const total = track.scrollWidth;
       distancePx = total > 0 ? total / 2 : 0;
       if (distancePx > 0) offsetPx = offsetPx % distancePx;
@@ -250,11 +249,15 @@
       return () => {
         if (scheduled) return;
         scheduled = true;
+        
+        // Fase de Escrita (Write)
         window.requestAnimationFrame(() => {
-          scheduled = false;
-          // Agrupa a escrita/leitura do DOM para evitar Forced Reflow
+          buildClones();
+          
+          // Fase de Leitura (Read) no próximo frame para evitar Forced Reflow
           window.requestAnimationFrame(() => {
               measure();
+              scheduled = false;
           });
         });
       };
@@ -287,7 +290,6 @@
       img.addEventListener("error", scheduleMeasure, { once: true });
     });
 
-    measure();
     scheduleMeasure();
 
     window.addEventListener("resize", scheduleMeasure, { passive: true });

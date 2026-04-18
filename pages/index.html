@@ -16,14 +16,6 @@
   document.head.appendChild(a);
 </script>
     <meta charset="UTF-8">
-    
-    <!-- Anti-Flicker Script -->
-    <script>
-        document.documentElement.style.visibility = "hidden";
-        document.addEventListener("DOMContentLoaded", function() {
-            document.documentElement.style.visibility = "";
-        });
-    </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="x-build-signature" content="ppc-kids-sig-20260415-a7f91c2b">
@@ -34,6 +26,8 @@
     <link rel="stylesheet" href="../css/main.css">
 
     <link rel="preconnect" href="https://usfogdxtrkdqthlcqshf.supabase.co" crossorigin>
+    <!-- Otimização de LCP (Hero Video Poster) -->
+    <link rel="preload" as="image" href="../assets/images/thumbnail-vsl.webp" fetchpriority="high">
     <link rel="preload" as="image"
           href="../assets/images/optimized/generated/ai-generated-01-960.webp"
           imagesrcset="../assets/images/optimized/generated/ai-generated-01-640.webp 640w, ../assets/images/optimized/generated/ai-generated-01-960.webp 960w, ../assets/images/optimized/generated/ai-generated-01-1280.webp 1280w"
