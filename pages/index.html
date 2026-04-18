@@ -19,24 +19,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="x-build-signature" content="ppc-kids-sig-20260415-a7f91c2b">
     <title>Oferta Especial - Pack Bíblico Infantil</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://usfogdxtrkdqthlcqshf.supabase.co" crossorigin>
     <link rel="preload" as="image"
           href="../assets/images/optimized/generated/ai-generated-01-960.webp"
           imagesrcset="../assets/images/optimized/generated/ai-generated-01-640.webp 640w, ../assets/images/optimized/generated/ai-generated-01-960.webp 960w, ../assets/images/optimized/generated/ai-generated-01-1280.webp 1280w"
           imagesizes="(max-width: 820px) 100vw, 720px">
           
-    <!-- Carregamento Otimizado das Fontes do Google -->
+    <!-- Carregamento Otimizado das Fontes do Google com size-adjust preventivo para FOUT/FOIT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"></noscript>
 
-    <!-- Critical CSS Placeholder -->
+    <!-- Critical CSS Placeholder & CLS Fixes -->
     <style id="critical-css">
-        /* Insira o CSS crítico aqui (ex: estilos da primeira dobra, hero, menu) para evitar bloqueio de renderização */
-        body { margin: 0; font-family: 'Poppins', sans-serif; background-color: #f8f9fa; }
-        .lp-hero { min-height: 50vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        /* Fallback Font Metrics para Poppins - Reduz o Cumulative Layout Shift (CLS) */
+        @font-face {
+            font-family: 'Poppins-fallback';
+            src: local('Arial');
+            size-adjust: 104%;
+            ascent-override: 105%;
+            descent-override: 35%;
+            line-gap-override: 0%;
+        }
+
+        body { 
+            margin: 0; 
+            font-family: 'Poppins', 'Poppins-fallback', Arial, sans-serif; 
+            background-color: #f8f9fa; 
+        }
+        
+        .lp-hero { 
+            min-height: 50vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+        }
+        
+        /* Previne o CLS reservando o espaço exato da imagem do Mockup (Aspect Ratio 960/524 ≈ 1.83) */
+        .mockup-hero {
+            aspect-ratio: 960 / 524;
+            width: 100%;
+            height: auto;
+            max-width: 720px; /* Limite do design */
+            object-fit: contain;
+        }
     </style>
 
     <!-- Carregamento Assíncrono do main.css -->
@@ -152,9 +181,9 @@
                     <img
                         src="../assets/images/optimized/generated/ai-generated-01-960.webp"
                         alt="Mockup do Pack"
-                        class="mockup-img"
-                        width="2816"
-                        height="1536"
+                        class="mockup-img mockup-hero"
+                        width="960"
+                        height="524"
                         fetchpriority="high"
                         decoding="async">
                 </picture>

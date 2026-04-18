@@ -66,17 +66,21 @@
       if (!target) return;
 
       e.preventDefault();
-      btn.classList.add("btn-cta--shimmer");
-      window.setTimeout(() => btn.classList.remove("btn-cta--shimmer"), 950);
+      
+      // Agrupa leitura e escrita usando requestAnimationFrame
+      window.requestAnimationFrame(() => {
+        btn.classList.add("btn-cta--shimmer");
+        window.setTimeout(() => btn.classList.remove("btn-cta--shimmer"), 950);
 
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
 
-      const featured = document.querySelector(".plan-master");
-      if (featured) {
-        featured.classList.remove("offer-highlight");
-        window.setTimeout(() => featured.classList.add("offer-highlight"), 0);
-        window.setTimeout(() => featured.classList.remove("offer-highlight"), 1200);
-      }
+        const featured = document.querySelector(".plan-master");
+        if (featured) {
+          featured.classList.remove("offer-highlight");
+          window.setTimeout(() => featured.classList.add("offer-highlight"), 0);
+          window.setTimeout(() => featured.classList.remove("offer-highlight"), 1200);
+        }
+      });
     });
   });
 
@@ -248,7 +252,10 @@
         scheduled = true;
         window.requestAnimationFrame(() => {
           scheduled = false;
-          measure();
+          // Agrupa a escrita/leitura do DOM para evitar Forced Reflow
+          window.requestAnimationFrame(() => {
+              measure();
+          });
         });
       };
     })();
